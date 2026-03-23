@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CopyEmailLink from "./components/copy-email-link";
 
 export default function Home() {
@@ -20,9 +21,12 @@ export default function Home() {
           <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-[2rem]">
             Yohance Pawania
           </h1>
-          <p className="max-w-xl text-base leading-relaxed text-neutral-300">
-            Software engineer focused on backend systems, AI/ML, and building practical products.
+          <p className="max-w-xl text-base leading-relaxed text-neutral-300 flex items-center gap-2">
+            hey! i&apos;m an incoming electrical engineering student at{" "}
+            <Image src="/assets/uw-seal.svg" alt="UWaterloo" width={16} height={16} className="h-[1em] w-auto" />{""}
+            uwaterloo
           </p>
+          <p>I like building things</p>
         </section>
 
         <section id="about" className="space-y-4">
@@ -30,24 +34,25 @@ export default function Home() {
             About
           </h2>
           <p className="max-w-xl text-sm leading-relaxed text-neutral-300 sm:text-base">
-            I like building things that are technically deep but easy to use. Most of my work sits at
-            the intersection of systems engineering, applied machine learning, and developer tools.
+            I started programming as a hobby in grade 8. Since then I've built lots of projects, dabbling
+            in web development, robotics, embedded software, and machine learning. I'm currently interested
+            in electronics, low level computing, and the intersection of hardware and software.
           </p>
           <p className="max-w-xl text-sm leading-relaxed text-neutral-400 sm:text-base">
-            I care about clean execution, fast feedback loops, and writing software that is simple,
-            reliable, and useful.
+            I am currently learning physics and compiler theory, building my own server, and doing lots of sidequests.
           </p>
         </section>
 
         <section id="achievements" className="space-y-4">
           <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-neutral-500">
-            Achievements
+            <i>recently</i>
           </h2>
           <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral-300 sm:text-base">
-            <li>Built and shipped production features across backend and AI-oriented products.</li>
-            <li>Won and placed in multiple hackathons while leading teams under tight timelines.</li>
-            <li>Led technical projects end-to-end, from architecture and implementation to launch.</li>
-            <li>Contributed to student and developer communities through mentorship and events.</li>
+            <li>cold mailed my way into an embedded software internship @ geotab</li>
+            <li>interned at sunnybrook, designing PCBs for noninvasive brain surgery</li>
+            <li>organized canada's largest high school hackathon</li>
+            <li>spent a year building modular e-bike conversion kits to eradicate barriers to mobility [backed by bloomberg philanthropies]</li>
+            <li>led firmware development for my school's electric racekart team</li>
           </ul>
         </section>
 
