@@ -1,65 +1,71 @@
-import Image from "next/image";
+import CopyEmailLink from "./components/copy-email-link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col px-6 py-6 sm:py-8 md:h-svh md:overflow-hidden">
+      <nav className="mb-8 flex items-center gap-6 text-sm text-neutral-400 sm:mb-10">
+        <a className="nav-link nav-link-active" href="#top">
+          home
+        </a>
+        <a className="nav-link" href="#about">
+          blog
+        </a>
+        <a className="nav-link" href="#achievements">
+          projects
+        </a>
+      </nav>
+
+      <div className="flex min-h-0 flex-1 flex-col justify-between gap-8 sm:gap-10 md:gap-12">
+        <section id="top" className="space-y-4">
+          <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-[2rem]">
+            Yohance Pawania
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-xl text-base leading-relaxed text-neutral-300">
+            Software engineer focused on backend systems, AI/ML, and building practical products.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </section>
+
+        <section id="about" className="space-y-4">
+          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-neutral-500">
+            About
+          </h2>
+          <p className="max-w-xl text-sm leading-relaxed text-neutral-300 sm:text-base">
+            I like building things that are technically deep but easy to use. Most of my work sits at
+            the intersection of systems engineering, applied machine learning, and developer tools.
+          </p>
+          <p className="max-w-xl text-sm leading-relaxed text-neutral-400 sm:text-base">
+            I care about clean execution, fast feedback loops, and writing software that is simple,
+            reliable, and useful.
+          </p>
+        </section>
+
+        <section id="achievements" className="space-y-4">
+          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-neutral-500">
+            Achievements
+          </h2>
+          <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral-300 sm:text-base">
+            <li>Built and shipped production features across backend and AI-oriented products.</li>
+            <li>Won and placed in multiple hackathons while leading teams under tight timelines.</li>
+            <li>Led technical projects end-to-end, from architecture and implementation to launch.</li>
+            <li>Contributed to student and developer communities through mentorship and events.</li>
+          </ul>
+        </section>
+
+        <footer className="grid w-full grid-cols-1 items-start gap-2 pt-1 text-sm text-neutral-400 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a className="social-link" href="https://github.com/ypawania" target="_blank" rel="noopener noreferrer">
+              github
+            </a>
+            <a className="social-link" href="https://www.linkedin.com/in/yohance-pawania-30aa902a4/" target="_blank" rel="noopener noreferrer">
+              linkedin
+            </a>
+            <a className="social-link" href="https://x.com/ypawania_" target="_blank" rel="noopener noreferrer">
+              twitter 
+            </a>
+          </div>
+          <CopyEmailLink className="social-link justify-self-start cursor-copy appearance-none border-0 bg-transparent p-0 text-left sm:justify-self-end sm:text-right" />
+        </footer>
+      </div>
+    </main>
   );
 }
