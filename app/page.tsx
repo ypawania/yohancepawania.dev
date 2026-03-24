@@ -21,10 +21,12 @@ export default function Home() {
           <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-[2rem]">
             Yohance Pawania
           </h1>
-          <p className="max-w-xl text-base leading-relaxed text-neutral-300 flex items-center gap-2">
-            hey! i&apos;m an incoming electrical engineering student at{" "}
-            <Image src="/assets/uw-seal.svg" alt="UWaterloo" width={16} height={16} className="h-[1em] w-auto" />{""}
-            uwaterloo
+          <p className="max-w-xl text-base leading-relaxed text-neutral-300">
+            hey! i&apos;m an incoming electrical engineering student at
+            <span className="inline-flex items-center gap-1 whitespace-nowrap ml-1">
+              <Image src="/assets/uw-seal.svg" alt="UWaterloo" width={16} height={16} className="h-[1em] w-auto" />
+              uwaterloo
+            </span>
           </p>
           <p>I like building things</p>
         </section>
