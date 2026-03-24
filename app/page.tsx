@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CopyEmailLink from "./components/copy-email-link";
+import TextLink from "./components/text-link";
 
 export default function Home() {
   return (
@@ -36,8 +37,8 @@ export default function Home() {
             About
           </h2>
           <p className="max-w-xl text-sm leading-relaxed text-neutral-300 sm:text-base">
-            I started programming as a hobby in grade 8. Since then I've built lots of projects, dabbling
-            in web development, robotics, embedded software, and machine learning. I'm currently interested
+            I started programming as a hobby in grade 8. Since then I&apos;ve built lots of projects, dabbling
+            in web development, robotics, embedded software, and machine learning. I&apos;m currently interested
             in electronics, low level computing, and the intersection of hardware and software.
           </p>
           <p className="max-w-xl text-sm leading-relaxed text-neutral-400 sm:text-base">
@@ -50,11 +51,11 @@ export default function Home() {
             <i>recently</i>
           </h2>
           <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral-300 sm:text-base">
-            <li>cold mailed my way into an embedded software internship @ geotab</li>
-            <li>interned at sunnybrook, designing PCBs for noninvasive brain surgery</li>
-            <li>organized canada's largest high school hackathon</li>
-            <li>spent a year building modular e-bike conversion kits to eradicate barriers to mobility [backed by bloomberg philanthropies]</li>
-            <li>led firmware development for my school's electric racekart team</li>
+            <li>cold mailed my way into an embedded software internship @ <TextLink href="https://www.geotab.com">geotab</TextLink></li>
+            <li>interned at <span className="inline-flex items-center gap-1 whitespace-nowrap"><Image src="/assets/Sunnybrook.png" alt="Sunnybrook" width={16} height={16} className="h-[1em] w-auto" /><TextLink href="https://www.sunnybrook.ca">sunnybrook</TextLink></span>, designing PCBs for noninvasive brain surgery</li>
+            <li>organized <span className="inline-flex items-center gap-1 whitespace-nowrap">canada&apos;s largest high school <Image src="/assets/eurekahacks-logo.svg" alt="Eurekahacks" width={16} height={16} className="h-[1em] w-auto" /> <TextLink href="https://2025.eurekahacks.ca/">hackathon</TextLink> </span></li>
+            <li>spent a year building modular e-bike conversion kits for eradicating mobility barriers [backed by <TextLink href="https://www.bloomberg.org">bloomberg philanthropies</TextLink>]</li>
+            <li>led firmware development for my school&apos;s electric racekart team</li>
           </ul>
         </section>
 
