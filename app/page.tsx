@@ -4,7 +4,7 @@ import TextLink from "./components/text-link";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col px-6 py-6 sm:py-8 md:h-svh md:overflow-hidden">
+    <main className="mx-auto flex w-full max-w-2xl flex-col px-6 py-8 sm:py-10">
       <nav className="mb-8 flex items-center gap-6 text-sm text-neutral-400 sm:mb-10">
         <a className="nav-link nav-link-active" href="#top">
           home
@@ -17,7 +17,7 @@ export default function Home() {
         </a>
       </nav>
 
-      <div className="flex min-h-0 flex-1 flex-col justify-between gap-8 sm:gap-10 md:gap-12">
+      <div className="flex flex-col gap-10 sm:gap-12">
         <section id="top" className="space-y-4">
           <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-[2rem]">
             Yohance Pawania
@@ -59,7 +59,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <footer className="grid w-full grid-cols-1 items-start gap-2 pt-1 text-sm text-neutral-400 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
+        <footer className="grid w-full grid-cols-1 items-start gap-2 border-t border-neutral-900 pt-6 text-sm text-neutral-400 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <a className="social-link" href="https://github.com/ypawania" target="_blank" rel="noopener noreferrer">
               github
