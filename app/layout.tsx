@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -17,6 +18,11 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Yohance Pawania",
   description: "Personal website for Yohance Pawania.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -31,20 +37,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (() => {
-                const storedTheme = localStorage.getItem("site-theme");
-                const systemLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-                const theme = storedTheme === "light" || storedTheme === "dark" || storedTheme === "catppuccin"
-                  ? storedTheme
-                  : (systemLight ? "light" : "dark");
-                document.documentElement.dataset.theme = theme;
-              })();
-            `,
-          }}
-        />
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (() => {
+              const storedTheme = localStorage.getItem("site-theme");
+              const systemLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+              const theme = storedTheme === "light" || storedTheme === "dark" || storedTheme === "catppuccin"
+                ? storedTheme
+                : (systemLight ? "light" : "dark");
+              document.documentElement.dataset.theme = theme;
+            })();
+          `}
+        </Script>
         {children}
       </body>
     </html>

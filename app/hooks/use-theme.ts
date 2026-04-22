@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 export type Theme = "dark" | "light" | "catppuccin";
 
@@ -11,21 +11,13 @@ function isTheme(value: string | null): value is Theme {
   return value === "dark" || value === "light" || value === "catppuccin";
 }
 
-function getInitialTheme(): Theme {
+function getSnapshot(): Theme {
   if (typeof document !== "undefined") {
     const theme = document.documentElement.dataset.theme;
     if (isTheme(theme ?? null)) {
       return theme;
     }
   }
-
-  if (typeof window !== "undefined") {
-    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
-    if (isTheme(storedTheme)) {
-      return storedTheme;
-    }
-  }
-
   return "dark";
 }
 
@@ -35,23 +27,20 @@ function applyTheme(theme: Theme) {
   window.dispatchEvent(new CustomEvent("theme-change", { detail: theme }));
 }
 
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener("theme-change", onStoreChange);
+
+  return () => {
+    window.removeEventListener("theme-change", onStoreChange);
+  };
+}
+
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+
 export default function useTheme() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-
-  useEffect(() => {
-    const handleThemeChange = (event: Event) => {
-      const nextTheme = (event as CustomEvent<Theme>).detail;
-      if (isTheme(nextTheme)) {
-        setTheme(nextTheme);
-      }
-    };
-
-    window.addEventListener("theme-change", handleThemeChange);
-
-    return () => {
-      window.removeEventListener("theme-change", handleThemeChange);
-    };
-  }, []);
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggleTheme = () => {
     const currentThemeIndex = THEMES.indexOf(theme);
