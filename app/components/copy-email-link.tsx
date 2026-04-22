@@ -73,8 +73,8 @@ export default function CopyEmailLink({ className }: CopyEmailLinkProps) {
 
   const tooltipToneClass =
     copyState === "error"
-      ? "border-neutral-700 text-neutral-300"
-      : "border-neutral-700 text-neutral-200";
+      ? "text-[var(--muted-strong)]"
+      : "text-[var(--foreground)]";
 
   return (
     <span className="group relative inline-flex items-center">
@@ -87,7 +87,7 @@ export default function CopyEmailLink({ className }: CopyEmailLinkProps) {
         {DISPLAY_EMAIL}
       </button>
       <span
-        className={`pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-md border bg-neutral-900/95 px-2 py-1 text-[11px] font-medium tracking-wide shadow-[0_6px_18px_rgba(0,0,0,0.35)] transition-all duration-150 ease-out ${tooltipToneClass} ${tooltipVisibilityClass}`}
+        className={`tooltip-surface pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-medium tracking-wide shadow-[0_6px_18px_rgba(0,0,0,0.35)] transition-all duration-150 ease-out ${tooltipToneClass} ${tooltipVisibilityClass}`}
         role="status"
         aria-live="polite"
       >

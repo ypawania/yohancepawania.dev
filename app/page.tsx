@@ -1,56 +1,65 @@
 import Image from "next/image";
+import CommandPalette from "./components/command-palette";
+import CommandPaletteTrigger from "./components/command-palette-trigger";
 import CopyEmailLink from "./components/copy-email-link";
 import TextLink from "./components/text-link";
+import ThemeToggle from "./components/theme-toggle";
 
 export default function Home() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col px-6 py-8 sm:py-10">
-      <nav className="mb-8 flex items-center gap-6 text-sm text-neutral-400 sm:mb-10">
-        <a className="nav-link nav-link-active" href="#top">
-          home
-        </a>
-        <a className="nav-link" href="#about">
-          blog
-        </a>
-        <a className="nav-link" href="#achievements">
-          projects
-        </a>
+      <nav className="mb-8 flex items-center justify-between gap-6 text-sm sm:mb-10">
+        <div className="flex items-center gap-6">
+          <a className="nav-link nav-link-active" href="#top">
+            home
+          </a>
+          <a className="nav-link" href="#about">
+            blog
+          </a>
+          <a className="nav-link" href="#achievements">
+            projects
+          </a>
+        </div>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <CommandPaletteTrigger />
+        </div>
       </nav>
 
       <div className="flex flex-col gap-10 sm:gap-12">
         <section id="top" className="space-y-4">
-          <h1 className="text-3xl font-semibold tracking-tight text-neutral-100 sm:text-[2rem]">
+          <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-[2rem]">
             Yohance Pawania
           </h1>
-          <p className="max-w-xl text-base leading-relaxed text-neutral-300">
+          <p className="max-w-xl text-base leading-relaxed text-[var(--muted-strong)]">
             hey! i&apos;m an incoming electrical engineering student at
             <span className="inline-flex items-center gap-1 whitespace-nowrap ml-1">
               <Image src="/assets/uw-seal.svg" alt="UWaterloo" width={16} height={16} className="h-[1em] w-auto" />
               uwaterloo
             </span>
           </p>
-          <p>I like building things</p>
+          <p className="text-[var(--muted)]">I like building things</p>
         </section>
 
         <section id="about" className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-neutral-500">
+          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
             About
           </h2>
-          <p className="max-w-xl text-sm leading-relaxed text-neutral-300 sm:text-base">
+          <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
             I started programming as a hobby in grade 8. Since then I&apos;ve built lots of projects, dabbling
             in web development, robotics, embedded software, and machine learning. I&apos;m currently interested
             in electronics, low level computing, and the intersection of hardware and software.
           </p>
-          <p className="max-w-xl text-sm leading-relaxed text-neutral-400 sm:text-base">
+          <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
             I am currently learning physics and compiler theory, building my own server, and doing lots of sidequests.
           </p>
         </section>
 
         <section id="achievements" className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-neutral-500">
+          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
             <i>recently</i>
           </h2>
-          <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral-300 sm:text-base">
+          <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
             <li>cold mailed my way into an embedded software internship @ <TextLink href="https://www.geotab.com">geotab</TextLink></li>
             <li>interned at <span className="inline-flex items-center gap-1 whitespace-nowrap"><Image src="/assets/Sunnybrook.png" alt="Sunnybrook" width={16} height={16} className="h-[1em] w-auto" /><TextLink href="https://www.sunnybrook.ca">sunnybrook</TextLink></span>, designing PCBs for noninvasive brain surgery</li>
             <li>organized <span className="inline-flex items-center gap-1 whitespace-nowrap">canada&apos;s largest high school <Image src="/assets/eurekahacks-logo.svg" alt="Eurekahacks" width={16} height={16} className="h-[1em] w-auto" /> <TextLink href="https://2025.eurekahacks.ca/">hackathon</TextLink> </span></li>
@@ -59,7 +68,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <footer className="grid w-full grid-cols-1 items-start gap-2 border-t border-neutral-900 pt-6 text-sm text-neutral-400 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
+        <footer className="grid w-full grid-cols-1 items-start gap-2 border-t border-[var(--border)] pt-6 text-sm sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <a className="social-link" href="https://github.com/ypawania" target="_blank" rel="noopener noreferrer">
               github
@@ -74,6 +83,7 @@ export default function Home() {
           <CopyEmailLink className="social-link justify-self-start cursor-copy appearance-none border-0 bg-transparent p-0 text-left sm:justify-self-end sm:text-right" />
         </footer>
       </div>
+      <CommandPalette repoUrl="https://github.com/ypawania/yohancepawania.dev" />
     </main>
   );
 }

@@ -3,6 +3,49 @@
 :root {
   --background: #0a0a0a;
   --foreground: #f5f5f5;
+  --muted: #8a8a8a;
+  --muted-strong: #cfcfcf;
+  --accent: #cfcfcf;
+  --border: #1f1f1f;
+  --surface: #101010;
+  --surface-strong: #161616;
+  --surface-hover: #1c1c1c;
+  --overlay: rgba(0, 0, 0, 0.6);
+  --link: #f5f5f5;
+  --link-decoration: #737373;
+  --selection: #2a2a2a;
+}
+
+:root[data-theme="light"] {
+  --background: #f7f1e7;
+  --foreground: #211d18;
+  --muted: #73675c;
+  --muted-strong: #3b342d;
+  --accent: #8f6f52;
+  --border: #ddd2c3;
+  --surface: #efe6d8;
+  --surface-strong: #e6dbcb;
+  --surface-hover: #ddd1c1;
+  --overlay: rgba(46, 36, 24, 0.16);
+  --link: #201b16;
+  --link-decoration: #97897b;
+  --selection: #dfd3c2;
+}
+
+:root[data-theme="catppuccin"] {
+  --background: #181825;
+  --foreground: #cdd6f4;
+  --muted: #a6adc8;
+  --muted-strong: #bac2de;
+  --accent: #89b4fa;
+  --border: #45475a;
+  --surface: #1e1e2e;
+  --surface-strong: #313244;
+  --surface-hover: #45475a;
+  --overlay: rgba(17, 17, 27, 0.72);
+  --link: #b4befe;
+  --link-decoration: #89b4fa;
+  --selection: #585b70;
 }
 
 @theme inline {
@@ -18,26 +61,102 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+::selection {
+  background: var(--selection);
+}
+
 .nav-link {
-  color: rgb(163 163 163);
+  color: var(--muted);
   text-decoration: none;
   transition: color 150ms ease;
 }
 
 .nav-link:hover {
-  color: rgb(229 229 229);
+  color: var(--foreground);
 }
 
 .nav-link-active {
-  color: rgb(229 229 229);
+  color: var(--accent);
 }
 
 .social-link {
-  color: rgb(163 163 163);
+  color: var(--muted);
   text-decoration: none;
   transition: color 150ms ease;
 }
 
 .social-link:hover {
-  color: rgb(245 245 245);
+  color: var(--accent);
+}
+
+.theme-button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  box-shadow: none;
+}
+
+.theme-button:hover {
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.theme-button:focus,
+.theme-button:focus-visible,
+.theme-button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.text-link {
+  color: var(--link);
+  text-decoration-color: var(--link-decoration);
+}
+
+.text-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.tooltip-surface {
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  border-color: var(--border);
+  color: var(--muted-strong);
+}
+
+.palette-overlay {
+  background: var(--overlay);
+}
+
+.palette-surface {
+  background: var(--background);
+  border-color: var(--border);
+}
+
+.palette-section {
+  border-color: var(--border);
+}
+
+.palette-panel {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--muted-strong);
+}
+
+.palette-panel-muted {
+  color: var(--muted);
+}
+
+.palette-item {
+  color: var(--muted-strong);
+}
+
+.palette-item[data-selected="true"] {
+  background: var(--surface-strong);
+}
+
+.palette-kbd {
+  border: 0;
+  background: var(--surface);
+  color: var(--muted-strong);
 }
