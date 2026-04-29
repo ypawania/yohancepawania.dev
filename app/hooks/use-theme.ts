@@ -13,8 +13,8 @@ function isTheme(value: string | null): value is Theme {
 
 function getSnapshot(): Theme {
   if (typeof document !== "undefined") {
-    const theme = document.documentElement.dataset.theme;
-    if (isTheme(theme ?? null)) {
+    const theme = document.documentElement.dataset.theme ?? null;
+    if (isTheme(theme)) {
       return theme;
     }
   }
@@ -44,8 +44,7 @@ export default function useTheme() {
 
   const toggleTheme = () => {
     const currentThemeIndex = THEMES.indexOf(theme);
-    const nextTheme = THEMES[(currentThemeIndex + 1) % THEMES.length];
-    setTheme(nextTheme);
+    const nextTheme = THEMES[(currentThemeIndex + 1) % THEMES.length] ?? "dark";
     applyTheme(nextTheme);
   };
 
