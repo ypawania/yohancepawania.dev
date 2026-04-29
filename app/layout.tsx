@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -16,8 +17,27 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yohancepawania.dev"),
   title: "Yohance Pawania",
-  description: "Personal website for Yohance Pawania.",
+  description:
+    "Yohance Pawania is an electrical engineering student interested in embedded software, electronics, robotics, and low-level computing.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Yohance Pawania",
+    description:
+      "Electrical engineering student building embedded software, electronics, robotics, and hardware/software projects.",
+    url: "https://yohancepawania.dev",
+    siteName: "Yohance Pawania",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Yohance Pawania",
+    description:
+      "Electrical engineering student building embedded software, electronics, robotics, and hardware/software projects.",
+  },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
@@ -50,6 +70,7 @@ export default function RootLayout({
           `}
         </Script>
         {children}
+        <Analytics />
       </body>
     </html>
   );
