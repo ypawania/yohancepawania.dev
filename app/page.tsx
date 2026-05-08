@@ -13,10 +13,10 @@ export default function Home() {
           <a className="nav-link nav-link-active" href="#top">
             home
           </a>
-          <a className="nav-link" href="#about">
+          <a className="nav-link" href="#recents">
             blog
           </a>
-          <a className="nav-link" href="#achievements">
+          <a className="nav-link" href="#socials">
             projects
           </a>
         </div>
@@ -31,31 +31,26 @@ export default function Home() {
           <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-[2rem]">
             Yohance Pawania
           </h1>
-          <p className="max-w-xl text-base leading-relaxed text-[var(--muted-strong)]">
-            hey! i&apos;m an incoming electrical engineering student at
-            <span className="inline-flex items-center gap-1 whitespace-nowrap ml-1">
-              <Image src="/assets/uw-seal.svg" alt="UWaterloo" width={16} height={16} className="h-[1em] w-auto" />
-              uwaterloo
-            </span>
-          </p>
-          <p className="text-[var(--muted)]">I like building things</p>
+          <div className="space-y-4">
+            <p className="max-w-xl text-base leading-relaxed text-[var(--muted-strong)]">
+              i&apos;m an incoming electrical engineering student at
+              the University of Waterloo passionate about physics, compilers, and machine learning. 
+            </p>
+            <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
+              Lately I&apos;ve been spending time on machine learning, messing
+              around with my home server, and building a better feel for
+              hardware. I&apos;m also comfortable on the lathe, mill, and
+              woodworking bench.
+            </p>
+            <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+              Away from the computer, I like bouldering, biking, camping, and
+              being outside. I read a lot too, mostly science fiction and
+              classics.
+            </p>
+          </div>
         </section>
 
-        <section id="about" className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
-            About
-          </h2>
-          <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
-            I started programming as a hobby in grade 8. Since then I&apos;ve built lots of projects, dabbling
-            in web development, robotics, embedded software, and machine learning. I&apos;m currently interested
-            in electronics, low level computing, and the intersection of hardware and software.
-          </p>
-          <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-            I am currently learning physics and compiler theory, building my own server, and doing lots of sidequests.
-          </p>
-        </section>
-
-        <section id="achievements" className="space-y-4">
+        <section id="recents" className="space-y-4">
           <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
             <i>recently</i>
           </h2>
@@ -68,7 +63,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <footer className="grid w-full grid-cols-1 items-start gap-2 border-t border-[var(--border)] pt-6 text-sm sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
+        <footer id="socials" className="grid w-full grid-cols-1 items-start gap-2 border-t border-[var(--border)] pt-6 text-sm sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4 sm:text-base">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <a className="social-link" href="https://github.com/ypawania" target="_blank" rel="noopener noreferrer">
               github
@@ -77,7 +72,7 @@ export default function Home() {
               linkedin
             </a>
             <a className="social-link" href="https://x.com/ypawania_" target="_blank" rel="noopener noreferrer">
-              twitter 
+              twitter
             </a>
           </div>
           <CopyEmailLink className="social-link justify-self-start cursor-copy appearance-none border-0 bg-transparent p-0 text-left sm:justify-self-end sm:text-right" />

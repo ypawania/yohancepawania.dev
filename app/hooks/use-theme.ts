@@ -5,10 +5,14 @@ import { useSyncExternalStore } from "react";
 export type Theme = "dark" | "light" | "catppuccin";
 
 const STORAGE_KEY = "site-theme";
-const THEMES: Theme[] = ["dark", "light", "catppuccin"];
+const THEMES: Theme[] = ["catppuccin", "dark", "light"];
 
 function isTheme(value: string | null): value is Theme {
-  return value === "dark" || value === "light" || value === "catppuccin";
+  return (
+    value === "dark" ||
+    value === "light" ||
+    value === "catppuccin"
+  );
 }
 
 function getSnapshot(): Theme {
@@ -18,7 +22,7 @@ function getSnapshot(): Theme {
       return theme;
     }
   }
-  return "dark";
+  return "catppuccin";
 }
 
 function applyTheme(theme: Theme) {
@@ -36,7 +40,7 @@ function subscribe(onStoreChange: () => void) {
 }
 
 function getServerSnapshot(): Theme {
-  return "dark";
+  return "catppuccin";
 }
 
 export default function useTheme() {
@@ -44,7 +48,8 @@ export default function useTheme() {
 
   const toggleTheme = () => {
     const currentThemeIndex = THEMES.indexOf(theme);
-    const nextTheme = THEMES[(currentThemeIndex + 1) % THEMES.length] ?? "dark";
+    const nextTheme =
+      THEMES[(currentThemeIndex + 1) % THEMES.length] ?? "catppuccin";
     applyTheme(nextTheme);
   };
 

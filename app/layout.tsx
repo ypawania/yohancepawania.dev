@@ -61,10 +61,9 @@ export default function RootLayout({
           {`
             (() => {
               const storedTheme = localStorage.getItem("site-theme");
-              const systemLight = window.matchMedia("(prefers-color-scheme: light)").matches;
               const theme = storedTheme === "light" || storedTheme === "dark" || storedTheme === "catppuccin"
                 ? storedTheme
-                : (systemLight ? "light" : "dark");
+                : "catppuccin";
               document.documentElement.dataset.theme = theme;
             })();
           `}

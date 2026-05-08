@@ -12,11 +12,11 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const isHydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const nextThemeLabel =
-    !isHydrated || theme === "dark"
-      ? "creme mode"
-      : theme === "light"
-        ? "catppuccin mode"
-        : "dark mode";
+    !isHydrated || theme === "catppuccin"
+      ? "dark mode"
+      : theme === "dark"
+        ? "light mode"
+        : "catppuccin mode";
 
   return (
     <button
@@ -26,12 +26,12 @@ export default function ThemeToggle() {
       aria-label={`Switch to ${nextThemeLabel}`}
       title={`Switch to ${nextThemeLabel}`}
     >
-      {!isHydrated || theme === "dark" ? (
-        <Sun className="h-4 w-4" />
-      ) : theme === "light" ? (
-        <Palette className="h-4 w-4" />
-      ) : (
+      {!isHydrated || theme === "catppuccin" ? (
         <Moon className="h-4 w-4" />
+      ) : theme === "dark" ? (
+        <Sun className="h-4 w-4" />
+      ) : (
+        <Palette className="h-4 w-4" />
       )}
     </button>
   );

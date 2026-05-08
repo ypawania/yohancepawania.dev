@@ -13,7 +13,6 @@ import {
   Palette,
   Search,
   Sun,
-  UserRound,
   Wrench,
 } from "lucide-react";
 import { useEffect, useState, useSyncExternalStore } from "react";
@@ -69,11 +68,11 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
   const { theme, toggleTheme } = useTheme();
   const isHydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const nextThemeLabel =
-    !isHydrated || theme === "dark"
-      ? "Creme"
-      : theme === "light"
-        ? "Catppuccin"
-        : "Dark";
+    !isHydrated || theme === "catppuccin"
+      ? "Dark"
+      : theme === "dark"
+        ? "Light"
+        : "Catppuccin";
 
   function runCommand(command: () => void) {
     setOpen(false);
@@ -130,12 +129,9 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
       if (key === "h") {
         event.preventDefault();
         runCommand(() => scrollToId("top"));
-      } else if (key === "a") {
-        event.preventDefault();
-        runCommand(() => scrollToId("about"));
       } else if (key === "r") {
         event.preventDefault();
-        runCommand(() => scrollToId("achievements"));
+        runCommand(() => scrollToId("recents"));
       } else if (key === "g") {
         event.preventDefault();
         runCommand(() => window.open("https://github.com/ypawania", "_blank"));
@@ -235,17 +231,8 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                   <Shortcut isShiftPressed={isShiftPressed}>H</Shortcut>
                 </Command.Item>
                 <Command.Item
-                  value="about intro paragraph background"
-                  onSelect={() => runCommand(() => scrollToId("about"))}
-                  className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
-                >
-                  <UserRound className="h-4 w-4" />
-                  <span className="flex-1">Go to About</span>
-                  <Shortcut isShiftPressed={isShiftPressed}>A</Shortcut>
-                </Command.Item>
-                <Command.Item
                   value="recent achievements projects built work"
-                  onSelect={() => runCommand(() => scrollToId("achievements"))}
+                  onSelect={() => runCommand(() => scrollToId("recents"))}
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
                   <Wrench className="h-4 w-4" />
@@ -335,12 +322,12 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                   onSelect={() => runCommand(() => toggleTheme())}
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
-                  {!isHydrated || theme === "dark" ? (
-                    <Sun className="h-4 w-4" />
-                  ) : theme === "light" ? (
-                    <Palette className="h-4 w-4" />
-                  ) : (
+                  {!isHydrated || theme === "catppuccin" ? (
                     <Moon className="h-4 w-4" />
+                  ) : theme === "dark" ? (
+                    <Sun className="h-4 w-4" />
+                  ) : (
+                    <Palette className="h-4 w-4" />
                   )}
                   <span className="flex-1">
                     Switch to {nextThemeLabel} Mode
