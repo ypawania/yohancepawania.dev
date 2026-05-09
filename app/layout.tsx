@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://yohancepawania.dev"),
   title: "Yohance Pawania",
   description:
-    "Yohance Pawania is an electrical engineering student interested in embedded software, electronics, robotics, and low-level computing.",
+    "Yohance Pawania is a computer science student interested in embedded software, electronics, robotics, and low-level computing.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Yohance Pawania",
     description:
-      "Electrical engineering student building embedded software, electronics, robotics, and hardware/software projects.",
+      "Computer science student building embedded software, electronics, robotics, and hardware/software projects.",
     url: "https://yohancepawania.dev",
     siteName: "Yohance Pawania",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Yohance Pawania",
     description:
-      "Electrical engineering student building embedded software, electronics, robotics, and hardware/software projects.",
+      "Computer science student building embedded software, electronics, robotics, and hardware/software projects.",
   },
   icons: {
     icon: "/icon.svg",

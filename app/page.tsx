@@ -35,7 +35,7 @@ export default function Home() {
           </h1>
           <div className="space-y-4">
             <p className="max-w-xl text-base leading-relaxed text-[var(--muted-strong)]">
-              i&apos;m an incoming electrical engineering student at
+              i&apos;m an incoming computer science student at
               the University of Waterloo passionate about physics, compilers, and machine learning. 
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
