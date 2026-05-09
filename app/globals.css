@@ -89,6 +89,10 @@ body {
   color: var(--accent);
 }
 
+.webring-link:hover img {
+  opacity: 1;
+}
+
 .theme-button {
   border: 0;
   background: transparent;

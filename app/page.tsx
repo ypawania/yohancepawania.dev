@@ -6,6 +6,8 @@ import TextLink from "./components/text-link";
 import ThemeToggle from "./components/theme-toggle";
 
 export default function Home() {
+  const webringUrl = "https://cs.uwatering.com/#https://yohancepawania.dev";
+
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col px-6 py-8 sm:py-10">
       <nav className="mb-8 flex items-center justify-between gap-6 text-sm sm:mb-10">
@@ -74,6 +76,33 @@ export default function Home() {
             <a className="social-link" href="https://x.com/ypawania_" target="_blank" rel="noopener noreferrer">
               twitter
             </a>
+            <nav
+              aria-label="UW CS Webring"
+              className="flex items-center gap-2"
+            >
+              <a className="social-link leading-none" href={`${webringUrl}?nav=prev`} aria-label="Previous UW CS Webring site">
+                ←
+              </a>
+              <a
+                className="webring-link"
+                href={webringUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="UW CS Webring"
+              >
+                <Image
+                  src="https://cs.uwatering.com/icon.white.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="h-[1em] w-[1em] opacity-75 transition-opacity duration-150"
+                  unoptimized
+                />
+              </a>
+              <a className="social-link leading-none" href={`${webringUrl}?nav=next`} aria-label="Next UW CS Webring site">
+                →
+              </a>
+            </nav>
           </div>
           <CopyEmailLink className="social-link justify-self-start cursor-copy appearance-none border-0 bg-transparent p-0 text-left sm:justify-self-end sm:text-right" />
         </footer>
