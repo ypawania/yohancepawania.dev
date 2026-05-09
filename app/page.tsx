@@ -36,17 +36,17 @@ export default function Home() {
           <div className="space-y-4">
             <p className="max-w-xl text-base leading-relaxed text-[var(--muted-strong)]">
               i&apos;m an incoming computer science student at
-              the University of Waterloo passionate about physics, compilers, and machine learning. 
+              the university of waterloo passionate about physics, compilers, and machine learning.
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
-              Lately I&apos;ve been spending time on machine learning, messing
+              lately i&apos;ve been spending time on machine learning, messing
               around with my home server, and building a better feel for
-              hardware. I&apos;m also comfortable on the lathe, mill, and
+              hardware. i&apos;m also comfortable on the lathe, mill, and
               woodworking bench.
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-              Away from the computer, I like bouldering, biking, camping, and
-              being outside. I read a lot too, mostly science fiction and
+              away from the computer, i like bouldering, biking, camping, and
+              being outside. i read a lot too, mostly science fiction and
               classics.
             </p>
           </div>
