@@ -95,7 +95,15 @@ export default function Home() {
                   alt=""
                   width={24}
                   height={24}
-                  className="h-[1em] w-[1em] opacity-75 transition-opacity duration-150"
+                  className="webring-icon-dark h-[1em] w-[1em] opacity-75 transition-opacity duration-150"
+                  unoptimized
+                />
+                <Image
+                  src="https://cs.uwatering.com/icon.black.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="webring-icon-light h-[1em] w-[1em] opacity-75 transition-opacity duration-150"
                   unoptimized
                 />
               </a>

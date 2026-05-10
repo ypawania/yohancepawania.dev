@@ -93,6 +93,18 @@ body {
   opacity: 1;
 }
 
+.webring-icon-light {
+  display: none;
+}
+
+:root[data-theme="light"] .webring-icon-dark {
+  display: none;
+}
+
+:root[data-theme="light"] .webring-icon-light {
+  display: block;
+}
+
 .theme-button {
   border: 0;
   background: transparent;
