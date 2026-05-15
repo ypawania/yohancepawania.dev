@@ -36,18 +36,17 @@ export default function Home() {
           <div className="space-y-4">
             <p className="max-w-xl text-base leading-relaxed text-[var(--muted-strong)]">
               i&apos;m an incoming computer science student at
-              the university of waterloo passionate about physics, compilers, and machine learning.
+              the university of waterloo interested in compilers, machine learning, and embedded systems.
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
-              lately i&apos;ve been spending time on machine learning, messing
-              around with my home server, and building a better feel for
-              hardware. i&apos;m also comfortable on the lathe, mill, and
-              woodworking bench.
+            At this stage, i&apos;m mostly focused on exploring and sidequesting. currently, i am learning semiconductor physics
+            and building chips at the <TextLink href="https://www.waterloofab.com/"><i>hacker fab</i></TextLink>. I&apos;ve been learning ml, 
+            messing around with my home server, distrohopping on linux, and making pcbs. 
+
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-              away from the computer, i like bouldering, biking, camping, and
-              being outside. i read a lot too, mostly science fiction and
-              classics.
+              i like bouldering, biking, and reading. mainly sci-fi and classics. i also watch video essays about movies! 
+              hmu if you&apos;d like to chat about any of the above :) 
             </p>
           </div>
         </section>
@@ -57,10 +56,10 @@ export default function Home() {
             <i>recently</i>
           </h2>
           <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
-            <li>cold mailed my way into an embedded software internship @ <TextLink href="https://www.geotab.com">geotab</TextLink></li>
+            <li>built embedded telemetry software (and played with humanoid robots) @ <TextLink href="https://www.geotab.com">geotab</TextLink></li>
             <li>interned at <span className="inline-flex items-center gap-1 whitespace-nowrap"><Image src="/assets/Sunnybrook.png" alt="Sunnybrook" width={16} height={16} className="h-[1em] w-auto" /><TextLink href="https://www.sunnybrook.ca">sunnybrook</TextLink></span>, designing PCBs for noninvasive brain surgery</li>
             <li>organized <span className="inline-flex items-center gap-1 whitespace-nowrap">canada&apos;s largest high school <Image src="/assets/eurekahacks-logo.svg" alt="Eurekahacks" width={16} height={16} className="h-[1em] w-auto" /> <TextLink href="https://2025.eurekahacks.ca/">hackathon</TextLink> </span></li>
-            <li>spent a year building modular e-bike conversion kits for eradicating mobility barriers [backed by <TextLink href="https://www.bloomberg.org">bloomberg philanthropies</TextLink>]</li>
+            <li>built modular e-bike conversion kits [backed by <TextLink href="https://www.bloomberg.org">bloomberg philanthropies</TextLink>]</li>
             <li>led firmware development for my school&apos;s electric racekart team</li>
           </ul>
         </section>
