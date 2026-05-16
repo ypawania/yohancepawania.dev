@@ -58,7 +58,7 @@ export default function Home() {
             <i>recently</i>
           </h2>
           <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
-            <li>built embedded telemetry software (and played with humanoid robots) @ <TextLink href="https://www.geotab.com">geotab</TextLink></li>
+            <li>built embedded telemetry software [and played with humanoid robots] @ <TextLink href="https://www.geotab.com">geotab</TextLink></li>
             <li>interned at <span className="inline-flex items-center gap-1 whitespace-nowrap"><Image src="/assets/Sunnybrook.png" alt="Sunnybrook" width={16} height={16} className="h-[1em] w-auto" /><TextLink href="https://www.sunnybrook.ca">sunnybrook</TextLink></span>, designing PCBs for noninvasive brain surgery</li>
             <li>organized <span className="inline-flex items-center gap-1 whitespace-nowrap">canada&apos;s largest high school <Image src="/assets/eurekahacks-logo.svg" alt="Eurekahacks" width={16} height={16} className="h-[1em] w-auto" /> <TextLink href="https://2025.eurekahacks.ca/">hackathon</TextLink> </span></li>
             <li>built modular e-bike conversion kits [backed by <TextLink href="https://www.bloomberg.org">bloomberg philanthropies</TextLink>]</li>
