@@ -148,7 +148,7 @@ body {
   transition: color 150ms ease;
 }
 
-.nav-link::after,
+.nav-link:not(.nav-link-active)::after,
 .social-link::after,
 .text-link::after {
   position: absolute;
@@ -162,7 +162,7 @@ body {
   pointer-events: none;
 }
 
-.nav-link::before,
+.nav-link:not(.nav-link-active)::before,
 .social-link::before,
 .text-link::before {
   position: absolute;
@@ -179,7 +179,7 @@ body {
   transform-origin: left;
 }
 
-.nav-link:hover::before,
+.nav-link:not(.nav-link-active):hover::before,
 .social-link:hover::before,
 .text-link:hover::before {
   animation: sweep 500ms ease-in-out forwards;
