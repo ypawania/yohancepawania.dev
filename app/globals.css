@@ -65,8 +65,22 @@ body {
   background: var(--selection);
 }
 
+@keyframes sweep {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
 .nav-link {
   color: var(--muted);
+  display: inline-block;
+  position: relative;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -81,6 +95,8 @@ body {
 
 .social-link {
   color: var(--muted);
+  display: inline-block;
+  position: relative;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -126,12 +142,52 @@ body {
 
 .text-link {
   color: var(--link);
-  text-decoration-color: var(--link-decoration);
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.nav-link::after,
+.social-link::after,
+.text-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  z-index: 1;
+  height: 1px;
+  background: var(--link-decoration);
+  content: "";
+  pointer-events: none;
+}
+
+.nav-link::before,
+.social-link::before,
+.text-link::before {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  z-index: 2;
+  height: 1px;
+  background: var(--foreground);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.nav-link:hover::before,
+.social-link:hover::before,
+.text-link:hover::before {
+  animation: sweep 500ms ease-in-out forwards;
+  opacity: 1;
 }
 
 .text-link:hover {
   color: var(--accent);
-  text-decoration-color: var(--accent);
 }
 
 .tooltip-surface {

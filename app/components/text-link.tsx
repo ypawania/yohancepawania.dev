@@ -18,7 +18,7 @@ export default function TextLink({
       href={href}
       target={target}
       rel={rel}
-      className="text-link underline underline-offset-2 transition-all duration-150 hover:italic"
+      className="text-link"
     >
       {children}
     </a>

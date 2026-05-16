@@ -40,9 +40,9 @@ export default function Home() {
               the university of waterloo interested in compilers, machine learning, and embedded systems.
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
-            At this stage, i&apos;m mostly focused on exploring and sidequesting. currently, i am learning semiconductor physics
+            at this stage, i&apos;m mostly focused on exploring and sidequesting. currently, i am learning semiconductor physics
             and building chips at the <TextLink href="https://www.waterloofab.com/"><i>hacker fab</i></TextLink>. 
-            I&apos;ve also been learning ml, messing around with my home server, 
+            i&apos;ve also been learning ml, messing around with my home server, 
             distrohopping on linux, and making pcbs. 
 
             </p>
