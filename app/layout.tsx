@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import CommandPalette from "./components/command-palette";
+import SiteHeader from "./components/site-header";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -56,7 +58,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full">
         <Script id="theme-init" strategy="beforeInteractive">
           {`
             (() => {
@@ -68,7 +70,9 @@ export default function RootLayout({
             })();
           `}
         </Script>
+        <SiteHeader />
         {children}
+        <CommandPalette repoUrl="https://github.com/ypawania/yohancepawania.dev" />
         <Analytics />
       </body>
     </html>

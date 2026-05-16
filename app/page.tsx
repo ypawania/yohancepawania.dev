@@ -1,34 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
-import CommandPalette from "./components/command-palette";
-import CommandPaletteTrigger from "./components/command-palette-trigger";
 import CopyEmailLink from "./components/copy-email-link";
 import TextLink from "./components/text-link";
-import ThemeToggle from "./components/theme-toggle";
 
 export default function Home() {
   const webringUrl = "https://cs.uwatering.com/#https://yohancepawania.dev";
 
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col px-6 py-8 sm:py-10">
-      <nav className="mb-8 flex items-center justify-between gap-6 text-sm sm:mb-10">
-        <div className="flex items-center gap-6">
-          <a className="nav-link nav-link-active" href="#top">
-            home
-          </a>
-          <Link className="nav-link" href="/blog">
-            blog
-          </Link>
-          <Link className="nav-link" href="/projects">
-            projects
-          </Link>
-        </div>
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <CommandPaletteTrigger />
-        </div>
-      </nav>
-
+    <main className="mx-auto flex w-full max-w-2xl flex-col px-6 pb-8 sm:pb-10">
       <div className="flex flex-col gap-10 sm:gap-12">
         <section id="top" className="space-y-4">
           <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-[2rem]">
@@ -116,7 +94,6 @@ export default function Home() {
           <CopyEmailLink className="social-link justify-self-start cursor-copy appearance-none border-0 bg-transparent p-0 text-left sm:justify-self-end sm:text-right" />
         </footer>
       </div>
-      <CommandPalette repoUrl="https://github.com/ypawania/yohancepawania.dev" />
     </main>
   );
 }

@@ -8,18 +8,8 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col justify-center px-6 py-8">
+    <main className="mx-auto flex w-full max-w-2xl flex-col px-6 pb-8 sm:pb-10">
       <div className="space-y-10">
-        <nav className="flex items-center gap-6 text-sm">
-          <Link className="nav-link" href="/">
-            home
-          </Link>
-          <span className="nav-link-active">blog</span>
-          <Link className="nav-link" href="/projects">
-            projects
-          </Link>
-        </nav>
-
         <section className="space-y-4">
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-[var(--muted)]">
             target / writing
