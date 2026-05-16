@@ -4,18 +4,21 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Command } from "cmdk";
 import {
   ArrowUp,
+  BookOpen,
   ExternalLink,
   GitBranch,
   Home,
-  Link,
+  Link as LinkIcon,
   Mail,
   Moon,
   Palette,
+  PanelsTopLeft,
   Search,
   Sun,
   Wrench,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 import useMobileDevice from "../hooks/use-mobile-device";
 import useTheme from "../hooks/use-theme";
 
@@ -61,6 +64,8 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
   const [isShiftPressed, setIsShiftPressed] = useState(false);
   const isMobileDevice = useMobileDevice();
+  const pathname = usePathname();
+  const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const nextThemeLabel =
     theme === "dark"
@@ -73,6 +78,24 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
     setOpen(false);
     command();
   }
+
+  const goToPath = useCallback((path: string) => {
+    if (pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    router.push(path);
+  }, [pathname, router]);
+
+  const goToHomeSection = useCallback((id: string) => {
+    if (pathname === "/") {
+      scrollToId(id);
+      return;
+    }
+
+    router.push(`/#${id}`);
+  }, [pathname, router]);
 
   useEffect(() => {
     const handleCustomOpen = () => {
@@ -123,10 +146,16 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
 
       if (key === "h") {
         event.preventDefault();
-        runCommand(() => scrollToId("top"));
+        runCommand(() => goToHomeSection("top"));
       } else if (key === "r") {
         event.preventDefault();
-        runCommand(() => scrollToId("recents"));
+        runCommand(() => goToHomeSection("recents"));
+      } else if (key === "b") {
+        event.preventDefault();
+        runCommand(() => goToPath("/blog"));
+      } else if (key === "p") {
+        event.preventDefault();
+        runCommand(() => goToPath("/projects"));
       } else if (key === "g") {
         event.preventDefault();
         runCommand(() => window.open("https://github.com/ypawania", "_blank"));
@@ -170,7 +199,7 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
       document.removeEventListener("keyup", handleKeyUp);
       window.removeEventListener("blur", handleBlur);
     };
-  }, [open, repoUrl, toggleTheme]);
+  }, [goToHomeSection, goToPath, open, repoUrl, toggleTheme]);
 
   if (isMobileDevice) {
     return null;
@@ -181,11 +210,10 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
       <Dialog.Portal>
         <Dialog.Overlay className="palette-overlay fixed inset-0 z-40" />
         <Dialog.Content
-          aria-describedby="command-palette-description"
           className="fixed left-1/2 top-[20%] z-50 w-[calc(100%-2rem)] max-w-[32rem] -translate-x-1/2 outline-none"
         >
           <Dialog.Title className="sr-only">Command palette</Dialog.Title>
-          <Dialog.Description id="command-palette-description" className="sr-only">
+          <Dialog.Description className="sr-only">
             Search website sections, links, and appearance controls.
           </Dialog.Description>
           <Command className="palette-surface overflow-hidden rounded-xl border shadow-2xl shadow-black/20">
@@ -218,7 +246,7 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
               <Command.Group heading="Navigation" className="px-2 text-[var(--muted)]">
                 <Command.Item
                   value="home top landing intro"
-                  onSelect={() => runCommand(() => scrollToId("top"))}
+                  onSelect={() => runCommand(() => goToHomeSection("top"))}
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
                   <Home className="h-4 w-4" />
@@ -227,7 +255,7 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                 </Command.Item>
                 <Command.Item
                   value="recent achievements projects built work"
-                  onSelect={() => runCommand(() => scrollToId("recents"))}
+                  onSelect={() => runCommand(() => goToHomeSection("recents"))}
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
                   <Wrench className="h-4 w-4" />
@@ -235,8 +263,30 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                   <Shortcut isShiftPressed={isShiftPressed}>R</Shortcut>
                 </Command.Item>
                 <Command.Item
+                  value="blog writing notes"
+                  onSelect={() => runCommand(() => goToPath("/blog"))}
+                  className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  <span className="flex-1">Go to Blog</span>
+                  <Shortcut isShiftPressed={isShiftPressed}>B</Shortcut>
+                </Command.Item>
+                <Command.Item
+                  value="projects builds work"
+                  onSelect={() => runCommand(() => goToPath("/projects"))}
+                  className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
+                >
+                  <PanelsTopLeft className="h-4 w-4" />
+                  <span className="flex-1">Go to Projects</span>
+                  <Shortcut isShiftPressed={isShiftPressed}>P</Shortcut>
+                </Command.Item>
+                <Command.Item
                   value="top scroll back up"
-                  onSelect={() => runCommand(() => scrollToId("top"))}
+                  onSelect={() =>
+                    runCommand(() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" }),
+                    )
+                  }
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
                   <ArrowUp className="h-4 w-4" />
@@ -270,7 +320,7 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                   }
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
-                  <Link className="h-4 w-4" />
+                  <LinkIcon className="h-4 w-4" />
                   <span className="flex-1">LinkedIn Profile</span>
                   <Shortcut isShiftPressed={isShiftPressed}>L</Shortcut>
                 </Command.Item>
