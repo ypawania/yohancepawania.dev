@@ -40,13 +40,14 @@ export default function Home() {
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted-strong)] sm:text-base">
             At this stage, i&apos;m mostly focused on exploring and sidequesting. currently, i am learning semiconductor physics
-            and building chips at the <TextLink href="https://www.waterloofab.com/"><i>hacker fab</i></TextLink>. I&apos;ve been learning ml, 
-            messing around with my home server, distrohopping on linux, and making pcbs. 
+            and building chips at the <TextLink href="https://www.waterloofab.com/"><i>hacker fab</i></TextLink>. 
+            I&apos;ve also been learning ml, messing around with my home server, 
+            distrohopping on linux, and making pcbs. 
 
             </p>
             <p className="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
               i like bouldering, biking, and reading. mainly sci-fi and classics. i also watch video essays about movies! 
-              hmu if you&apos;d like to chat about any of the above :) 
+              hmu if you&apos;d like to chat :) 
             </p>
           </div>
         </section>
