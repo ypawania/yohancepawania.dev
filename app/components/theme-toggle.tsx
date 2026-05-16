@@ -1,22 +1,16 @@
 "use client";
 
 import { Moon, Palette, Sun } from "lucide-react";
-import { useSyncExternalStore } from "react";
 import useTheme from "../hooks/use-theme";
-
-function subscribe() {
-  return () => {};
-}
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
-  const isHydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const nextThemeLabel =
-    !isHydrated || theme === "catppuccin"
-      ? "dark mode"
-      : theme === "dark"
-        ? "light mode"
-        : "catppuccin mode";
+    theme === "dark"
+      ? "light mode"
+      : theme === "light"
+        ? "catppuccin mode"
+        : "dark mode";
 
   return (
     <button
@@ -26,12 +20,12 @@ export default function ThemeToggle() {
       aria-label={`Switch to ${nextThemeLabel}`}
       title={`Switch to ${nextThemeLabel}`}
     >
-      {!isHydrated || theme === "catppuccin" ? (
-        <Moon className="h-4 w-4" />
-      ) : theme === "dark" ? (
+      {theme === "dark" ? (
         <Sun className="h-4 w-4" />
-      ) : (
+      ) : theme === "light" ? (
         <Palette className="h-4 w-4" />
+      ) : (
+        <Moon className="h-4 w-4" />
       )}
     </button>
   );

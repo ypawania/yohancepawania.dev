@@ -15,7 +15,7 @@ import {
   Sun,
   Wrench,
 } from "lucide-react";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import useMobileDevice from "../hooks/use-mobile-device";
 import useTheme from "../hooks/use-theme";
 
@@ -57,22 +57,17 @@ function scrollToId(id: string) {
   window.history.replaceState(null, "", `#${id}`);
 }
 
-function subscribe() {
-  return () => {};
-}
-
 export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
   const [isShiftPressed, setIsShiftPressed] = useState(false);
   const isMobileDevice = useMobileDevice();
   const { theme, toggleTheme } = useTheme();
-  const isHydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const nextThemeLabel =
-    !isHydrated || theme === "catppuccin"
-      ? "Dark"
-      : theme === "dark"
-        ? "Light"
-        : "Catppuccin";
+    theme === "dark"
+      ? "Light"
+      : theme === "light"
+        ? "Catppuccin"
+        : "Dark";
 
   function runCommand(command: () => void) {
     setOpen(false);
@@ -322,12 +317,12 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                   onSelect={() => runCommand(() => toggleTheme())}
                   className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
                 >
-                  {!isHydrated || theme === "catppuccin" ? (
-                    <Moon className="h-4 w-4" />
-                  ) : theme === "dark" ? (
+                  {theme === "dark" ? (
                     <Sun className="h-4 w-4" />
-                  ) : (
+                  ) : theme === "light" ? (
                     <Palette className="h-4 w-4" />
+                  ) : (
+                    <Moon className="h-4 w-4" />
                   )}
                   <span className="flex-1">
                     Switch to {nextThemeLabel} Mode

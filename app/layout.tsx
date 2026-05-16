@@ -63,7 +63,7 @@ export default function RootLayout({
               const storedTheme = localStorage.getItem("site-theme");
               const theme = storedTheme === "light" || storedTheme === "dark" || storedTheme === "catppuccin"
                 ? storedTheme
-                : "catppuccin";
+                : "dark";
               document.documentElement.dataset.theme = theme;
             })();
           `}
