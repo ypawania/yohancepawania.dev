@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import CommandPalette from "./components/command-palette";
 import CommandPaletteTrigger from "./components/command-palette-trigger";
 import CopyEmailLink from "./components/copy-email-link";
@@ -15,12 +16,12 @@ export default function Home() {
           <a className="nav-link nav-link-active" href="#top">
             home
           </a>
-          <a className="nav-link" href="#recents">
+          <Link className="nav-link" href="/blog">
             blog
-          </a>
-          <a className="nav-link" href="#socials">
+          </Link>
+          <Link className="nav-link" href="/projects">
             projects
-          </a>
+          </Link>
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
