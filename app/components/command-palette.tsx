@@ -15,7 +15,6 @@ import {
   PanelsTopLeft,
   Search,
   Sun,
-  Wrench,
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -147,9 +146,6 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
       if (key === "h") {
         event.preventDefault();
         runCommand(() => goToHomeSection("top"));
-      } else if (key === "r") {
-        event.preventDefault();
-        runCommand(() => goToHomeSection("recents"));
       } else if (key === "b") {
         event.preventDefault();
         runCommand(() => goToPath("/blog"));
@@ -252,15 +248,6 @@ export default function CommandPalette({ repoUrl }: CommandPaletteProps) {
                   <Home className="h-4 w-4" />
                   <span className="flex-1">Go to Home</span>
                   <Shortcut isShiftPressed={isShiftPressed}>H</Shortcut>
-                </Command.Item>
-                <Command.Item
-                  value="recent achievements projects built work"
-                  onSelect={() => runCommand(() => goToHomeSection("recents"))}
-                  className="palette-item flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm"
-                >
-                  <Wrench className="h-4 w-4" />
-                  <span className="flex-1">Go to Achievements</span>
-                  <Shortcut isShiftPressed={isShiftPressed}>R</Shortcut>
                 </Command.Item>
                 <Command.Item
                   value="blog writing notes"

@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+FLARE_IDEAS.md
+flare_ideas.md
 
 # debug
 npm-debug.log*
